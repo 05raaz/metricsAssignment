@@ -1,0 +1,7 @@
+.footer{
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 250px;
+    background: #2d353c;
+    padding: 3px 15px;
+  }
