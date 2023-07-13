@@ -2,7 +2,6 @@
     <div class="container">
         <div class="row " style="padding-top: 35px;max-width: inherit;">
             <div class="col-lg-1 col-md-1 col-sm-1 col-1 logo">
-                <!-- <img src="../../assets/logo.png" alt="worldPediaLogo" /> -->
                 <img src="./assets/logo.png" alt="worldPediaLogo" />
             </div>
             <div class="col-lg-6 col-md-5 col-sm-4 col-1"></div>
@@ -14,8 +13,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="searchBox">
-                    <input type="text" [(ngModel)]="countryName" required maxlength="100" name="search" 
-                    oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '').replace(/(\..*)\./g, '$1');">
+                    <input type="text" [(ngModel)]="countryName" required maxlength="100" name="search"
+                        oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '').replace(/(\..*)\./g, '$1');">
                     <button class="searchBtn" type="submit" [disabled]="countryName?.length < 1"
                         (click)="searchForCountry()">SEARCH</button>
                 </div>
@@ -24,16 +23,6 @@
     </div>
 </div>
 <div class="container" *ngIf="countryList.length > 0">
-    <!-- <div class="row" style="margin-top: 100px;">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="searchBox">
-                <input type="text" [(ngModel)]="countryName" required maxlength="100" name="search" 
-                oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '').replace(/(\..*)\./g, '$1');">
-                <button class="searchBtn" type="submit" [disabled]="countryName?.length < 1"
-                    (click)="searchForCountry()">SEARCH</button>
-            </div>
-        </div>
-    </div> -->
     <div class="row cardContainer">
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let country of countryList.slice(0, endIndex);"
             style="margin-bottom: 20px;">
@@ -48,7 +37,8 @@
     </div>
     <div class="row">
         <div class="nextbtn col-lg-3 col-md-3 col-sm-3 col-3">
-            <button class="box2" type="button" (click)="next()" [disabled]="countryList.length < 20 || (endIndex >= countryList.length)">Next 5
+            <button class="box2" type="button" (click)="next()"
+                [disabled]="countryList.length < 20 || (endIndex >= countryList.length)">Next 5
                 Rows</button>
         </div>
     </div>
@@ -65,7 +55,6 @@
                 <img [src]="detailedinfo.flags.png" />
             </div>
         </div>
-        <!-- <img [src]="detailedinfo.flags.png" /> -->
         <div class="row text" style="margin-top: 15px;">
             <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Capital</label>
@@ -111,11 +100,12 @@
             <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Timezone</label>
             </div>
-            <div class="col-lg-10 col-sm-6 col-6 col-md-10" >
-                <div class="col-lg-4" *ngFor="let time of detailedinfo.timezones" style="padding-left: 0px;">
-                    <span >{{time}}</span>
+            <div class="col-lg-10 col-sm-6 col-9 col-md-10">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-md-4 col-5" *ngFor="let time of detailedinfo.timezones">
+                        {{time}}
+                    </div>
                 </div>
-                
             </div>
         </div>
     </div>

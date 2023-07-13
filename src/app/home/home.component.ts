@@ -10,7 +10,7 @@ import swal, { SweetAlertType } from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
 
-  countryList  =[];
+  countryList = [];
   detailedinfo: any;
   modalReference: any;
   closeResult: string;
@@ -33,40 +33,42 @@ export class HomeComponent implements OnInit {
 
   }
 
+  //To show details of specific country in pop-up.
   getDetails(countryName: string, content: any) {
-    this.countryList.filter( (ele: any) => {
-      if (countryName ===  ele['name']['common']) {
+    this.countryList.filter((ele: any) => {
+      if (countryName === ele['name']['common']) {
         this.detailedinfo = ele;
       }
     });
-    console.log(this.detailedinfo);
     this.open(content);
   }
 
+  //To open the pop-up model.
   open(content: any) {
-    this.modalService.open(content, {  windowClass: 'custom-class' });
+    this.modalService.open(content, { windowClass: 'custom-class' });
   }
 
-  next () {
+  //To fetch next 5 Rows of data to be displyed
+  next() {
     this.countryList.length;
-    this.endIndex = this.endIndex+20;
-    console.log(this.startIndex,this.endIndex);
+    this.endIndex = this.endIndex + 20;
   }
 
+  //Search functionality for countries name
   searchForCountry() {
     this.loading = true;
-    this.countryDetailsSer.searchCountry(this.countryName).subscribe((response: any) =>{
+    this.countryDetailsSer.searchCountry(this.countryName).subscribe((response: any) => {
       this.loading = false;
       this.countryList = response;
     },
-    error => {
-      // this.countryList = [];
-      this.error = error;
-      this.loading = false;
-      this.swalAlert(error,"Error",'error');
-    })
+      error => {
+        this.error = error;
+        this.loading = false;
+        this.swalAlert(error, "Error", 'error');
+      })
   }
 
+  //Showing Error Msg in pop-up if search api return error response
   swalAlert(description: string, submitType: string, alertType: SweetAlertType) {
     swal({
       title: submitType,
@@ -80,4 +82,5 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
 }

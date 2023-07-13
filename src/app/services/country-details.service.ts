@@ -14,26 +14,15 @@ export class CountryDetailsService {
     return this.http.get("https://restcountries.com/v3.1/all");
   }
 
-  searchCountry(name: any):Observable<any> {
-    // let url = 'https://restcountries.com/v3.1/name/';
-    // return this.http.get(url+name);
+  searchCountry(name: any): Observable<any> {
     let apiUrl = 'https://restcountries.com/v3.1/name/';
-    return this.http.get<any>(apiUrl+name)
+    return this.http.get<any>(apiUrl + name)
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
   
-  // getUsers(): Observable<any> {
-  //   let apiUrl = 'https://restcountries.com/v3.1/name/';
-  //   return this.http.get<any>(apiUrl)
-  //     .pipe(
-  //       retry(1),
-  //       catchError(this.handleError)
-  //     );
-  // }
-
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -43,7 +32,6 @@ export class CountryDetailsService {
       // server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    // window.alert(errorMessage);
     return throwError(errorMessage);
   }
 }

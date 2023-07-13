@@ -15,6 +15,6 @@ export class FooterComponent implements OnInit {
   }
 
   subscribe() {
-    window.alert("Thank you for subscribing: "+" "+this.emailId);
+    window.alert("Thank you for subscribing: " + " " + this.emailId);
   }
 }
