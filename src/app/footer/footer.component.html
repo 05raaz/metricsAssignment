@@ -2,12 +2,13 @@
   <div class="container">
     <div class="row " style="padding-top: 70px;max-width: inherit;">
       <div class="col-lg-1 col-md-1 col-sm-1 col-1 logo">
-        <img src="docs/assets/logo.png" alt="worldPediaLogo" />
+        <!-- <img src="../../assets/logo.png" alt="worldPediaLogo" /> -->
+        <img src="./assets/logo.png" alt="worldPediaLogo" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-5 col-5"></div>
       <div class="col-lg-5 col-md-5 col-sm-6 col-6 text">
         <div>
-          <input type="text" [(ngModel)]="emailId" required maxlength="100" name="search" placeholder="Enter Email"
+          <input type="email" [(ngModel)]="emailId" required maxlength="100" name="search" placeholder="Enter Email"
             pattern="^([_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5}))|(\d+$)$">
         </div>
         <div style="margin-top: 10px;">
