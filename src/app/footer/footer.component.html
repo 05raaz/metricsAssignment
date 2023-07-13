@@ -1,16 +1,29 @@
 <div class="footer">
-  <div class="row " style="padding-top: 70px;max-width: inherit;">
-    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-      <img src="../../assets/logo.png" alt="worldPediaLogo" />
+  <div class="container">
+    <div class="row " style="padding-top: 70px;max-width: inherit;">
+      <div class="col-lg-1 col-md-1 col-sm-1 col-1 logo">
+        <img src="../../assets/logo.png" alt="worldPediaLogo" />
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-5 col-5"></div>
+      <div class="col-lg-5 col-md-5 col-sm-6 col-6 text">
+        <div>
+          <input type="text" [(ngModel)]="emailId" required maxlength="100" name="search" placeholder="Enter Email"
+            pattern="^([_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5}))|(\d+$)$">
+        </div>
+        <div style="margin-top: 10px;">
+          <button class="searchBtn box2" type="submit" [disabled]="emailId?.length < 1"
+            (click)="subscribe()">Subcribe</button>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-3 col-xs-4"></div>
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-4" style="    font-size: 16px;
-    color: #fff;">
-      <p>Best list of all countires with their flags</p>
-      <p>on the whole internet !!!!</p>
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-4 logo">
+        <p>Worldpedia Inc</p>
+      </div>
+      <div class="col-lg-7 col-md-5 col-sm-3 col-1"></div>
+      <div class="col-lg-3 col-md-4 col-sm-5 col-7">
+        <p style="float: right;">2023 | All Rights Reserved</p>
+      </div>
     </div>
-    <!-- <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"></div> -->
-
   </div>
 </div>

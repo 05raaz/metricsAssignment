@@ -1,22 +1,54 @@
+<div class="header">
+    <div class="container">
+        <div class="row " style="padding-top: 35px;max-width: inherit;">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-1 logo">
+                <img src="../../assets/logo.png" alt="worldPediaLogo" />
+            </div>
+            <div class="col-lg-6 col-md-5 col-sm-4 col-2"></div>
+            <div class="col-lg-5 col-md-6 col-sm-7 col-8 text1">
+                <p>Best list of all countires with their flags</p>
+                <p>on the whole internet!!!!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="searchBox">
+                    <input type="text" [(ngModel)]="countryName" required maxlength="100" name="search" 
+                    oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '').replace(/(\..*)\./g, '$1');">
+                    <button class="searchBtn" type="submit" [disabled]="countryName?.length < 1"
+                        (click)="searchForCountry()">SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container" *ngIf="countryList.length > 0">
-    <div class="row">
-        <!-- <div class="col-lg-1 col-md-1 col-sm-11 col-xs-11"></div> -->
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <!-- <div class="row" style="margin-top: 100px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="searchBox">
-                <input type="text" [(ngModel)]="countryName" name="search">
+                <input type="text" [(ngModel)]="countryName" required maxlength="100" name="search" 
+                oninput="this.value = this.value.replace(/[^a-zA-Z.]/g, '').replace(/(\..*)\./g, '$1');">
                 <button class="searchBtn" type="submit" [disabled]="countryName?.length < 1"
                     (click)="searchForCountry()">SEARCH</button>
             </div>
         </div>
-    </div>
-    <div class="row" style="margin-top: 100px;">
-        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor="let country of countryList.slice(0, endIndex);"
+    </div> -->
+    <div class="row cardContainer">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12" *ngFor="let country of countryList.slice(0, endIndex);"
             style="margin-bottom: 20px;">
-            <div class="card" (click)="getDetails(country['name']['common'],countryDetailsDialog)">
-                <img [src]="country['flags']['png']" />
+            <div class="card box2" (click)="getDetails(country['name']['common'],countryDetailsDialog)">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="padding: 0;">
+                    <img [src]="country['flags']['png']" />
+                </div>
                 <div class="text" style="margin-top: 15px;"><span><b>{{country['name']['common']}}</b></span></div>
                 <div class="text"><span>{{country['continents'][0]}}</span></div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="nextbtn col-lg-3 col-md-3 col-sm-3 col-3">
+            <button class="box2" type="button" (click)="next()" [disabled]="countryList.length < 20 || (endIndex >= countryList.length)">Next 5
+                Rows</button>
         </div>
     </div>
 </div>
@@ -27,67 +59,68 @@
         <button type="button" class="close" (click)="d('Cross click')">×</button>
     </div>
     <div class="modal-body">
-        <img [src]="detailedinfo.flags.png" />
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <img [src]="detailedinfo.flags.png" />
+            </div>
+        </div>
+        <!-- <img [src]="detailedinfo.flags.png" /> -->
         <div class="row text" style="margin-top: 15px;">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Capital</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-3">
-                <span >{{detailedinfo.capital}}</span>
+            <div class="col-lg-6 col-sm-6 col-6 col-md-3">
+                <span>{{detailedinfo.capital}}</span>
             </div>
         </div>
         <div class="row text">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Continent</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-3">
-                <span >{{detailedinfo.continents[0]}}</span>
+            <div class="col-lg-6 col-sm-6 col-6 col-md-3">
+                <span>{{detailedinfo.continents[0]}}</span>
             </div>
         </div>
         <div class="row text">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Currency</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-3">
+            <div class="col-lg-6 col-sm-6 col-6 col-md-3">
                 <span *ngFor="let currency of detailedinfo.currencies | keyvalue">{{currency.key}}&nbsp;
                 </span>
             </div>
         </div>
         <div class="row text">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Languages</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-3">
+            <div class="col-lg-6 col-sm-6 col-6 col-md-3">
                 <span *ngFor="let lang of detailedinfo.languages | keyvalue">{{lang.value}}&nbsp;</span>
             </div>
         </div>
         <div class="row text">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
                 <label>Population</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-xs-6 col-md-3">
-                <span >{{detailedinfo.population}}</span>
+            <div class="col-lg-6 col-sm-6 col-6 col-md-3">
+                <span>{{detailedinfo.population}}</span>
             </div>
         </div>
         <div class="row text">
-            <div class="col-lg-2 col-sm-6 col-xs-6 col-md-2">
-                <label>Time zone</label>
+            <div class="col-lg-2 col-sm-3 col-3 col-md-2">
+                <label>Timezone</label>
             </div>
-            <div class="col-lg-10 col-sm-6 col-xs-6 col-md-10">
-                <span *ngFor="let time of detailedinfo.timezones">{{time}}</span>
+            <div class="col-lg-10 col-sm-6 col-6 col-md-10" >
+                <div class="col-lg-4" *ngFor="let time of detailedinfo.timezones" style="padding-left: 0px;">
+                    <span >{{time}}</span>
+                </div>
+                
             </div>
         </div>
     </div>
 </ng-template>
-<div class="nextbtn">
-    <button type="button" style="border: none;
-    border-radius: 5px;
-    background: #0c2d48;
-    color: #fff;" (click)="next()" [disabled]="countryList.length < 20 || (endIndex >= countryList.length)">Next 5
-        Rows</button>
-</div>
 
 
 <div *ngIf="loading">
-    <div class="loader"></div>
+    <div id="page-loader" style="opacity: 0.5;"><span class="spinner"></span></div>
 </div>

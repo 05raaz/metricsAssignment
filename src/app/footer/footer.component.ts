@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  emailId: any;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  subscribe() {
+    window.alert("Thankyour"+this.emailId);
+  }
 }

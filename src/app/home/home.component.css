@@ -1,14 +1,20 @@
 .card {
-    border: solid 1px black;
+    border: 1px solid #ced4da;
     /* width: 250px; */
     padding: 20px 20px 20px 17px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
+    
 }
-img {
-    width: 210px;
+.card img {
+    /* width: 210px; */
+    width: 100%;
     height: 120px;
     border-radius: 5px;
+}
+.cardContainer{
+  padding-top: 35%;
+  position: relative;
 }
 .text {
     font-size: 14px;
@@ -21,9 +27,19 @@ img {
 .nextbtn{
     width: 25%;
     line-height: 2;
-    margin: 30px;
+    margin: 30px 30px 30px 0px;
     font-size: 18px;
 
+}
+.nextbtn button {
+  width: 150px;
+  line-height: 2;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background-color: #4ac8ed;
 }
 button:disabled {
     opacity: .65;
@@ -32,24 +48,29 @@ button:disabled {
 
 .searchBtn{
     width: 25%;
-    line-height: 2;
     margin-left: 20px;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
     font-size: 18px;
     border: none;
-    border-radius: 5px;
-    background: #0c2d48;
-    color: #fff;
+    border-radius: 25px;
+    background-color: #4ac8ed;
 
   }
   input{
     width: 70%;
-    line-height: 2;
+    line-height: 1.5;
     font-size: 18px;
   }
   .searchBox{
+    background-color: #f5f7fa;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
+    position: relative;
+    margin-top: 3%;
+    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 10%);
   }
 
 
@@ -76,11 +97,165 @@ button:disabled {
 
 
   ::ng-deep .modal-dialog{
-    display: flex !important;
+    /* display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    height: 100% !important;
+    height: 100% !important; */
+    position: absolute !important;
+    top: 35% !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
   }
   button {
     cursor: pointer;
   }
+
+  @media(max-width: 575px) {
+    input {
+      font-size: 14px;
+      width: 65%;
+    }
+    .nextbtn {
+      width: 30%;
+    }
+    .nextbtn button ,.searchBtn {
+      font-size: 14px;
+    }
+    .card img {
+      width: 100%;
+      height: auto; 
+    }
+    ::ng-deep .modal-dialog{
+      position: absolute !important;
+      top: 45% !important;
+    }
+
+  }
+  /* @media(max-width: 991px) { 
+    .cardContainer {
+      padding-top: 50% !important;
+    }
+  } */
+
+  @media only screen and (min-device-width: 776px) and (max-device-width: 991px) {
+    ::ng-deep .cardContainer {
+      padding-top: 50% !important;
+    }
+  }
+  @media only screen and (min-device-width: 460px) and (max-device-width: 775px) {
+    ::ng-deep .cardContainer {
+      padding-top: 65% !important;
+    }
+  }
+  @media(max-width: 575px) {
+    ::ng-deep .cardContainer {
+      padding-top: 80% !important;
+    }
+  }
+
+  #page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #E6E8EC;
+    z-index: 9999;
+}
+#page-loader.fade {
+    display: none;
+}
+#page-loader.fade.in,
+#page-loader.fade.show {
+    display: block;
+}
+@-webkit-keyframes rotation {
+   from {-webkit-transform: rotate(0deg);}
+   to {-webkit-transform: rotate(359deg);}
+}
+@keyframes rotation {
+   from {transform: rotate(0deg);}
+   to {transform: rotate(359deg);}
+}
+.spinner, 
+.spinner-small {
+    height: 40px;
+    width: 40px;
+    margin: 0px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -20px;
+    border: 2px solid rgba(0,0,0,0.5);
+    border-top: 2px solid #fff;
+    border-radius: 100%;
+}
+.fade.in .spinner, 
+.fade.in .spinner-small,
+.fade.show .spinner, 
+.fade.show .spinner-small {
+    -webkit-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+}
+.spinner-small {
+    border: 2px solid rgba(0,0,0,0.05);
+    border-top: 2px solid #24B498;
+    height: 30px;
+    width: 30px;
+    margin: -15px 0 0 -15px;
+}
+
+.error {
+  margin-top: 50px;
+  font-size: 16px;
+  color: red;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+.header {
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 250px;
+  background: #0c2d48;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.text1 {
+  font-size: 16px;
+  color: #fff
+}
+
+@media(max-width: 575px) {
+  img {
+    width: 100px;
+    height: auto;
+  }
+
+  .text {
+    font-size: 12px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* .logo {
+    padding-left: 0px;
+  } */
+}
+
+p {
+  float: right;
+}

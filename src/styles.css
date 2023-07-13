@@ -1,2 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+
+html,
+body {
+    overflow-x: hidden !important;
+    background-color: #f5f7fa;
+}
+
+/* 5.41 Plugin - Bootstrap SweetAlert (Added in V3.0) */
+
+.swal-modal .btn:focus {
+    box-shadow: none !important;
+}
+
+.swal-icon--success,
+.swal-icon--success__ring {
+    border-color: rgba(4, 193, 66, 0.2) !important;
+}
+
+.swal-icon--success__line--long,
+.swal-icon--success__line--tip {
+    background-color: #04c142 !important;
+}
+
+.swal-icon--info {
+    border-color: #00cbff !important;
+}
+
+.swal-icon--info:after,
+.swal-icon--info:before {
+    background-color: #00cbff !important;
+}
+
+.swal-icon--warning__body,
+.swal-icon--warning__dot {
+    background-color: #ff7b01 !important;
+}
+
+.swal-icon--warning {
+    border-color: #ff7b01 !important;
+}
+
+.swal-icon--error__line {
+    background-color: #ff3502 !important;
+}
+
+.swal-icon--error {
+    border-color: #ff3502 !important;
+}
+
+
+.box2 {
+    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 10%);
+}
+
+.box2:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 5px 10px 1px rgb(0 0 0 / 15%);
+}

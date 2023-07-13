@@ -1,15 +1,36 @@
-.header{
-    flex-shrink: 0;
-    flex-grow: 0;
-    height: 250px;
-    background: #0c2d48;
-    /* padding: 3px 5px; */
+.header {
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 210px;
+  background: #0c2d48;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
-    /* padding: 15px;
-    width: 100%;
-    z-index: 99;
-    position: -webkit-sticky;
-    position: fixed; */
+.text {
+  font-size: 16px;
+  color: #fff
+}
+
+@media(max-width: 575px) {
+  img {
+    width: 100px;
+    height: auto;
   }
- 
-  
+
+  .text {
+    font-size: 12px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  /* .logo {
+    padding-left: 0px;
+  } */
+}
+
+p {
+  float: right;
+}

@@ -5,3 +5,48 @@
     background: #2d353c;
     padding: 3px 15px;
   }
+  .text {
+    font-size: 16px;
+    color: #fff
+  }
+  input {
+    background: #fff;
+    border: 1px solid transparent;
+    color: black;
+    width: 100%;
+    line-height: 2;
+  }
+  .searchBtn{
+    float: right;
+    width: 150px;
+    cursor: pointer;
+    line-height: 2;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #4ac8ed;
+  }
+  
+  @media(max-width: 575px) {
+    img {
+      width: 100px;
+      height: auto;
+    }
+    .text {
+      font-size: 12px;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .logo {
+      padding-left: 0px;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 14px;
+  }
+  .col-1 {
+    padding-right: 0px;
+  }
